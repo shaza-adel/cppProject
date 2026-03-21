@@ -1,17 +1,28 @@
 ﻿#include <iostream>
 #include <windows.h>
 using namespace std;
+//defining the structures
+const int max_users = 10;
+struct UserAccount
+{
+	int id;
+	char username[50];
+	char password[50];
+};
+//Arrays declarations
+UserAccount users[max_users];
+//function declarations
 void logmenu();
 int entry1;
+void login();
+void signup();
+//main function
 int main()
 {
-	//لدعم الرموز
+	//لدعم الرموز والإطارات
 	system("chcp 65001 > nul");
-	// ضبط الـ Console لدعم UTF-8
 	SetConsoleOutputCP(CP_UTF8);
 	SetConsoleCP(CP_UTF8);
-
-	// تغيير خط الـ Console لدعم الرموز
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	CONSOLE_FONT_INFOEX fontInfo;
 	fontInfo.cbSize = sizeof(CONSOLE_FONT_INFOEX);
@@ -33,6 +44,7 @@ int main()
 
 	}
 }
+//Ending of main function
 void logmenu()
 {
 	cout << "╔════════════════════════════════════════════════════╗\n";
@@ -45,6 +57,25 @@ void logmenu()
 	cout << "║ [3] Exit❎                                         ║\n";
 	cout << "║                                                    ║\n";
 	cout << "╚════════════════════════════════════════════════════╝\n";
-	cout << " Your entery: ";
+	cout << " Your entry: ";
 	cin >> entry1;
+}
+void login()
+{
+	cout << "╔═════════════════════════════════════╗\n";
+	cout << "║              Log in🔑               ║\n";
+	cout << "╠═════════════════════════════════════╣\n";
+	cout << "║ 👤User name: ";
+	cout << "║ 🔒Password: ";
+	cout << "";
+}
+void signup()
+{
+	cout << "╔═════════════════════════════════════╗\n";
+	cout << "║              Sign up📝              ║\n";
+	cout << "╠═════════════════════════════════════╣\n";
+	cout << "║ 🆔ID: ";
+	cout << "║ 🪪User name: ";
+	cout << "║ 🔒Password: ";
+	cout << "";
 }
